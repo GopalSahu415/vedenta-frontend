@@ -24,11 +24,11 @@ const Gallery = () => {
   return (
     <div id="gallery" className="flex flex-col min-h-screen">
       {/* Header */}
-      <section className="py-24 bg-[#0a0c10] border-b border-white/5">
+      <section className="py-24 bg-white border-b border-slate-100">
         <div className="container-custom">
           <div className="max-w-3xl">
-            <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white">Clinic Gallery</h1>
-            <p className="text-xl text-gray-400">
+            <h1 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900">Clinic Gallery</h1>
+            <p className="text-xl text-slate-500 font-medium">
               Take a look at our modern facility, advanced equipment, and successful transformations.
             </p>
           </div>
@@ -36,7 +36,7 @@ const Gallery = () => {
       </section>
 
       {/* Filter Tabs */}
-      <section className="py-12">
+      <section className="py-12 bg-slate-50 flex-grow">
         <div className="container-custom">
           <div className="flex flex-wrap gap-4 mb-12 justify-center lg:justify-start">
             {['all', 'clinic', 'equipment', 'transformation'].map((tab) => (
@@ -46,7 +46,7 @@ const Gallery = () => {
                 className={`px-6 md:px-8 py-2 md:py-3 rounded-full font-bold capitalize transition-all text-sm md:text-base ${
                   filter === tab 
                     ? 'bg-secondary text-white shadow-lg shadow-secondary/30' 
-                    : 'bg-white/5 text-gray-400 border border-white/10 hover:border-secondary hover:text-secondary'
+                    : 'bg-white text-slate-500 border border-slate-100 hover:border-secondary hover:text-secondary shadow-sm'
                 }`}
               >
                 {tab}

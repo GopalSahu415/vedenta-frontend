@@ -49,9 +49,9 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div id="testimonials" className="bg-[#0a0c10] min-h-screen text-white">
+    <div id="testimonials" className="bg-slate-50 min-h-screen text-slate-600">
       {/* Header */}
-      <section className="pt-32 pb-16 px-4">
+      <section className="pt-32 pb-16 px-4 bg-white border-b border-slate-100">
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -64,7 +64,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900"
           >
             What Our Patients Say
           </motion.h1>
@@ -72,7 +72,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto"
+            className="text-slate-500 text-lg max-w-2xl mx-auto font-medium"
           >
             We take pride in providing exceptional dental care. Read about the 
             experiences of those who have trusted us with their smiles.
@@ -81,7 +81,7 @@ const Testimonials = () => {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="pb-24 px-4">
+      <section className="py-24 px-4 bg-slate-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
@@ -91,7 +91,7 @@ const Testimonials = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-[#161b22] border border-white/5 p-8 rounded-[2rem] flex flex-col relative group hover:border-secondary/30 transition-all duration-300"
+                className="bg-white border border-slate-100 p-8 rounded-[2rem] flex flex-col relative group hover:border-secondary/30 transition-all duration-300 shadow-sm hover:shadow-xl"
               >
                 {/* Quote Badge */}
                 <div className="w-12 h-12 bg-secondary/10 flex items-center justify-center rounded-full mb-6">
@@ -106,16 +106,16 @@ const Testimonials = () => {
                 </div>
 
                 {/* Testimonial Content */}
-                <p className="text-gray-300 text-lg leading-relaxed mb-8 flex-grow">
+                <p className="text-slate-600 text-lg leading-relaxed mb-8 flex-grow italic">
                   "{testimonial.content}"
                 </p>
 
                 {/* Divider Line */}
-                <div className="w-full h-px bg-white/5 mb-8"></div>
+                <div className="w-full h-px bg-slate-100 mb-8"></div>
 
                 {/* Patient Info */}
                 <div className="flex items-center space-x-4">
-                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-secondary/50 transition-colors">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-slate-100 group-hover:border-secondary/50 transition-colors">
                     <img 
                       src={testimonial.image} 
                       alt={testimonial.name} 
@@ -123,8 +123,8 @@ const Testimonials = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white text-lg">{testimonial.name}</h4>
-                    <span className="text-secondary text-sm font-medium">{testimonial.role}</span>
+                    <h4 className="font-bold text-slate-900 text-lg">{testimonial.name}</h4>
+                    <span className="text-secondary text-sm font-semibold">{testimonial.role}</span>
                   </div>
                 </div>
               </motion.div>
@@ -134,15 +134,15 @@ const Testimonials = () => {
       </section>
 
       {/* Modern Contact CTA Section */}
-      <section className="pb-24 px-4">
+      <section className="pb-24 px-4 bg-slate-50">
         <div className="container-custom">
-          <div className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-center">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/10 blur-[100px] rounded-full -mr-32 -mt-32"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/10 blur-[100px] rounded-full -ml-32 -mb-32"></div>
+          <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden text-center shadow-2xl">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/20 blur-[100px] rounded-full -mr-32 -mt-32"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full -ml-32 -mb-32"></div>
             
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-8">Ready to start your own transformation?</h2>
-              <p className="text-gray-400 text-xl mb-12 leading-relaxed">
+              <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white">Ready to start your own transformation?</h2>
+              <p className="text-slate-300 text-xl mb-12 leading-relaxed font-medium">
                 Join our community of satisfied patients and experience world-class 
                 dental care in a modern, caring environment.
               </p>
@@ -156,7 +156,7 @@ const Testimonials = () => {
                 </a>
                 <a 
                   href="https://wa.me/919876543210" 
-                  className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all"
+                  className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all backdrop-blur-md"
                 >
                   <MessageCircle size={22} />
                   Chat With Us

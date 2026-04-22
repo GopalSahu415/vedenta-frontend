@@ -23,13 +23,13 @@
     scroll-padding-top: 80px;
   }
   body {
-    @apply antialiased text-gray-400 bg-[#0a0c10] font-sans overflow-x-hidden;
+    @apply antialiased text-slate-600 bg-slate-50 font-sans overflow-x-hidden;
   }
   section {
     @apply scroll-mt-20;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-semibold tracking-tight text-white;
+    @apply font-display font-semibold tracking-tight text-slate-900;
   }
 }
 
@@ -47,6 +47,6 @@
     @apply bg-secondary hover:bg-secondary-dark text-white px-6 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-secondary/30;
   }
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl;
+    @apply bg-white/70 backdrop-blur-md border border-white/40 rounded-2xl shadow-xl;
   }
 }

@@ -31,11 +31,11 @@ const Appointment = () => {
   return (
     <div id="appointment" className="flex flex-col min-h-screen">
       {/* Header */}
-      <section className="py-20 md:py-24 bg-gradient-to-r from-[#0f172a] to-[#1e293b] text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-[100px] -mr-48 -mt-48"></div>
+      <section className="py-20 md:py-24 bg-white border-b border-slate-100 overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px] -mr-48 -mt-48"></div>
         <div className="container-custom relative z-10 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-6">Book Your Appointment</h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 text-slate-900">Book Your Appointment</h1>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium">
             Take the first step towards a healthier, brighter smile. 
             Fill in the details below and we'll confirm your visit.
           </p>
@@ -43,27 +43,27 @@ const Appointment = () => {
       </section>
 
       {/* Booking Form Section */}
-      <section className="section-padding bg-[#0a0c10]">
+      <section className="section-padding bg-slate-50">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             {isSubmitSuccessful ? (
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-[#161b22] p-12 lg:p-20 rounded-[40px] shadow-2xl text-center border-t-8 border-secondary"
+                className="bg-white p-12 lg:p-20 rounded-[40px] shadow-2xl text-center border-t-8 border-secondary border border-slate-100"
               >
                 <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mx-auto mb-8 text-white shadow-lg shadow-secondary/20">
                   <CheckCircle size={48} />
                 </div>
-                <h2 className="text-4xl font-bold text-white mb-4">Request Received!</h2>
-                <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+                <h2 className="text-4xl font-bold text-slate-900 mb-4">Request Received!</h2>
+                <p className="text-xl text-slate-500 mb-12 leading-relaxed">
                   Thank you for choosing Vedanta Dental Clinic. Dr. Vedant Kansal's team will contact you shortly 
                   on your phone number to confirm your final appointment time.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button 
                     onClick={() => reset()}
-                    className="bg-secondary text-white font-bold px-10 py-4 rounded-2xl flex items-center justify-center space-x-2"
+                    className="bg-secondary text-white font-bold px-10 py-4 rounded-2xl flex items-center justify-center space-x-2 shadow-lg hover:bg-secondary-dark transition-all"
                   >
                     <span>Book Another</span>
                     <ArrowRight size={20} />
@@ -71,7 +71,7 @@ const Appointment = () => {
                 </div>
               </motion.div>
             ) : (
-              <div className="grid grid-cols-1 lg:grid-cols-12 bg-[#161b22]/50 backdrop-blur-xl rounded-[40px] shadow-2xl overflow-hidden border border-white/10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 bg-white rounded-[40px] shadow-2xl overflow-hidden border border-slate-100">
                 {/* Side Info */}
                 <div className="lg:col-span-4 bg-gradient-to-br from-secondary to-[#0f766e] p-8 md:p-12 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
@@ -88,13 +88,13 @@ const Appointment = () => {
                         <div className="bg-white/15 backdrop-blur-lg border border-white/20 p-2.5 rounded-xl shrink-0 transition-transform group-hover:scale-110">
                           {item.icon}
                         </div>
-                        <p className="font-medium text-white/90">{item.text}</p>
+                        <p className="font-semibold text-white/95">{item.text}</p>
                       </li>
                     ))}
                   </ul>
                   
                   <div className="mt-20 pt-10 border-t border-white/10 relative z-10">
-                    <p className="text-white/60 text-sm font-bold uppercase tracking-widest mb-4">Need immediate help?</p>
+                    <p className="text-white/70 text-sm font-bold uppercase tracking-widest mb-4">Need immediate help?</p>
                     <a href="tel:+919876543210" className="text-2xl font-display font-bold hover:text-white/80 transition-colors flex items-center space-x-2">
                        <Phone size={24} className="text-white/80" />
                        <span>+91 98765 43210</span>
@@ -103,84 +103,86 @@ const Appointment = () => {
                 </div>
 
                 {/* Form */}
-                <div className="lg:col-span-8 p-6 md:p-12">
+                <div className="lg:col-span-8 p-6 md:p-12 bg-white">
                   <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-2">
-                        <label className="flex items-center space-x-2 text-sm font-bold text-gray-500 uppercase tracking-widest ml-1">
+                        <label className="flex items-center space-x-2 text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
                           <User size={16} />
                           <span>Full Name</span>
                         </label>
                         <input 
                           {...register("name", { required: "Name is required" })}
-                          className={`w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border outline-none transition-all focus:ring-4 focus:ring-secondary/20 text-white placeholder-white/20 ${errors.name ? 'border-rose-500' : 'border-white/10 focus:border-secondary focus:bg-white/10'}`}
+                          className={`w-full px-6 py-4 rounded-2xl bg-slate-50 border outline-none transition-all focus:ring-4 focus:ring-secondary/10 text-slate-900 font-medium ${errors.name ? 'border-rose-500' : 'border-slate-200 focus:border-secondary'}`}
                           placeholder="John Doe"
                         />
-                        {errors.name && <p className="text-rose-500 text-sm">{errors.name.message}</p>}
+                        {errors.name && <p className="text-rose-500 text-sm font-medium">{errors.name.message}</p>}
                       </div>
  
                       <div className="space-y-2">
-                        <label className="flex items-center space-x-2 text-sm font-bold text-gray-500 uppercase tracking-widest ml-1">
+                        <label className="flex items-center space-x-2 text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
                           <Phone size={16} />
                           <span>Phone Number</span>
                         </label>
                         <input 
                           {...register("phone", { required: "Phone number is required" })}
-                          className={`w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border outline-none transition-all focus:ring-4 focus:ring-secondary/20 text-white placeholder-white/20 ${errors.phone ? 'border-rose-500' : 'border-white/10 focus:border-secondary focus:bg-white/10'}`}
+                          className={`w-full px-6 py-4 rounded-2xl bg-slate-50 border outline-none transition-all focus:ring-4 focus:ring-secondary/10 text-slate-900 font-medium ${errors.phone ? 'border-rose-500' : 'border-slate-200 focus:border-secondary'}`}
                           placeholder="+91 00000 00000"
                         />
-                        {errors.phone && <p className="text-rose-500 text-sm">{errors.phone.message}</p>}
+                        {errors.phone && <p className="text-rose-500 text-sm font-medium">{errors.phone.message}</p>}
                       </div>
                     </div>
  
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="space-y-2">
-                        <label className="flex items-center space-x-2 text-sm font-bold text-gray-500 uppercase tracking-widest ml-1">
+                        <label className="flex items-center space-x-2 text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
                           <Calendar size={16} />
                           <span>Preferred Date</span>
                         </label>
                         <input 
                           type="date"
                           {...register("date", { required: "Date is required" })}
-                          className={`w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border outline-none transition-all focus:ring-4 focus:ring-secondary/20 text-white ${errors.date ? 'border-rose-500' : 'border-white/10 focus:border-secondary focus:bg-white/10'}`}
+                          className={`w-full px-6 py-4 rounded-2xl bg-slate-50 border outline-none transition-all focus:ring-4 focus:ring-secondary/10 text-slate-900 font-medium ${errors.date ? 'border-rose-500' : 'border-slate-200 focus:border-secondary'}`}
                         />
-                        {errors.date && <p className="text-rose-500 text-sm">{errors.date.message}</p>}
+                        {errors.date && <p className="text-rose-500 text-sm font-medium">{errors.date.message}</p>}
                       </div>
  
                       <div className="space-y-2">
-                        <label className="flex items-center space-x-2 text-sm font-bold text-gray-500 uppercase tracking-widest ml-1">
+                        <label className="flex items-center space-x-2 text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
                           <Clock size={16} />
                           <span>Preferred Time</span>
                         </label>
-                        <select 
-                          {...register("time", { required: "Time is required" })}
-                          className={`w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border outline-none transition-all focus:ring-4 focus:ring-secondary/20 text-white appearance-none ${errors.time ? 'border-rose-500' : 'border-white/10 focus:border-secondary focus:bg-white/10'}`}
-                        >
-                          <option value="">Select a Slot</option>
-                          {timeSlots.map(slot => (
-                            <option key={slot} value={slot}>{slot}</option>
-                          ))}
-                        </select>
-                        {errors.time && <p className="text-rose-500 text-sm">{errors.time.message}</p>}
+                        <div className="relative">
+                          <select 
+                            {...register("time", { required: "Time is required" })}
+                            className={`w-full px-6 py-4 rounded-2xl bg-slate-50 border outline-none transition-all focus:ring-4 focus:ring-secondary/10 text-slate-900 appearance-none font-medium ${errors.time ? 'border-rose-500' : 'border-slate-200 focus:border-secondary'}`}
+                          >
+                            <option value="">Select a Slot</option>
+                            {timeSlots.map(slot => (
+                              <option key={slot} value={slot}>{slot}</option>
+                            ))}
+                          </select>
+                        </div>
+                        {errors.time && <p className="text-rose-500 text-sm font-medium">{errors.time.message}</p>}
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="flex items-center space-x-2 text-sm font-bold text-gray-500 uppercase tracking-widest ml-1">
+                      <label className="flex items-center space-x-2 text-sm font-bold text-slate-500 uppercase tracking-widest ml-1">
                         <MessageSquare size={16} />
                         <span>Nature of Problem</span>
                       </label>
                        <textarea 
                         {...register("problem", { required: "Please specify your problem" })}
                         rows="3"
-                        className={`w-full px-6 py-4 rounded-2xl bg-white/5 backdrop-blur-md border outline-none transition-all focus:ring-4 focus:ring-secondary/20 text-white placeholder-white/20 ${errors.problem ? 'border-rose-500' : 'border-white/10 focus:border-secondary focus:bg-white/10'}`}
+                        className={`w-full px-6 py-4 rounded-2xl bg-slate-50 border outline-none transition-all focus:ring-4 focus:ring-secondary/10 text-slate-900 font-medium ${errors.problem ? 'border-rose-500' : 'border-slate-200 focus:border-secondary'}`}
                         placeholder="E.g. Toothache, RCT, Teeth Whitening..."
                       ></textarea>
-                      {errors.problem && <p className="text-rose-500 text-sm">{errors.problem.message}</p>}
+                      {errors.problem && <p className="text-rose-500 text-sm font-medium">{errors.problem.message}</p>}
                     </div>
 
                     {errorMsg && (
-                      <div className="bg-rose-50 text-rose-600 p-4 rounded-xl text-center font-medium border border-rose-100">
+                      <div className="bg-rose-50 text-rose-600 p-4 rounded-xl text-center font-bold border border-rose-100">
                         {errorMsg}
                       </div>
                     )}
@@ -188,19 +190,19 @@ const Appointment = () => {
                     <button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full bg-gradient-to-r from-secondary to-[#0f766e] hover:shadow-[0_0_30px_rgba(20,184,166,0.3)] text-white py-5 text-xl font-bold rounded-2xl flex items-center justify-center space-x-3 disabled:opacity-70 transition-all transition-transform active:scale-[0.98] shadow-xl"
+                      className="w-full bg-gradient-to-r from-secondary to-[#0f766e] text-white py-5 text-xl font-bold rounded-2xl flex items-center justify-center space-x-3 disabled:opacity-70 transition-all shadow-xl shadow-secondary/20 hover:scale-[1.01] active:scale-[0.99]"
                     >
                       {isSubmitting ? (
                         <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                       ) : (
                         <>
                           <span>Submit Booking Request</span>
-                          <Send size={22} className="group-hover:translate-x-1" />
+                          <ArrowRight size={22} />
                         </>
                       )}
                     </button>
                     
-                    <p className="text-center text-gray-400 text-sm">
+                    <p className="text-center text-slate-400 text-sm font-medium">
                       *By submitting, you agree to receive a confirmation call from our team.
                     </p>
                   </form>

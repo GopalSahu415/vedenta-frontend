@@ -27,8 +27,8 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-500 border-b ${
       scrolled 
-        ? 'bg-slate-950/90 backdrop-blur-2xl border-white/10 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.5)]' 
-        : 'bg-slate-950/80 backdrop-blur-xl border-white/5 py-4'
+        ? 'bg-white/90 backdrop-blur-2xl border-slate-200 py-2 shadow-sm' 
+        : 'bg-white/80 backdrop-blur-xl border-slate-100 py-4'
     }`}>
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
@@ -37,7 +37,7 @@ const Navbar = () => {
             <span className="text-2xl font-black">V</span>
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-2xl leading-none text-white">Vedanta Dental</span>
+            <span className="font-display font-bold text-2xl leading-none text-slate-900">Vedanta Dental</span>
             <span className="text-[10px] uppercase tracking-[0.3em] text-secondary font-black mt-1">Meerut</span>
           </div>
         </NavLink>
@@ -48,7 +48,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={`#${link.path === '/' ? 'home' : link.path.replace('/', '')}`}
-              className="font-bold text-sm tracking-wide transition-all hover:text-secondary relative pb-1 text-gray-300 hover:scale-105"
+              className="font-bold text-sm tracking-wide transition-all hover:text-secondary relative pb-1 text-slate-600 hover:scale-105"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all group-hover:w-full"></span>
@@ -69,7 +69,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <div className="lg:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white p-2 focus:outline-none">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-slate-900 p-2 focus:outline-none">
             {isOpen ? <X size={30} /> : <Menu size={30} />}
           </button>
         </div>
@@ -82,7 +82,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden bg-slate-950/95 backdrop-blur-3xl border-t border-white/10 overflow-hidden shadow-2xl"
+            className="lg:hidden bg-white/95 backdrop-blur-3xl border-t border-slate-100 overflow-hidden shadow-2xl"
           >
             <div className="px-4 pt-4 pb-10 space-y-4">
               {navLinks.map((link) => (
@@ -90,7 +90,7 @@ const Navbar = () => {
                   key={link.name}
                   href={`#${link.path === '/' ? 'home' : link.path.replace('/', '')}`}
                   onClick={() => setIsOpen(false)}
-                  className="block px-4 py-3 text-lg font-bold text-gray-300 hover:text-secondary hover:bg-white/5 rounded-xl transition-all"
+                  className="block px-4 py-3 text-lg font-bold text-slate-600 hover:text-secondary hover:bg-slate-50 rounded-xl transition-all"
                 >
                   {link.name}
                 </a>
